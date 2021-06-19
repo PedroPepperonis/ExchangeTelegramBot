@@ -1,17 +1,11 @@
 import logging
 
-from aiogram import Bot, Dispatcher
 from aiogram import types, filters
 from aiogram.utils.executor import start_webhook
 
-
 from fixer_currency.fixer_currency import lst, convert, history
-from config import WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_PORT, WEBAPP_HOST, BOT_TOKEN
-
-logging.basicConfig(level=logging.INFO)
-
-bot = Bot(BOT_TOKEN)
-dp = Dispatcher(bot)
+from config import WEBHOOK_URL, WEBHOOK_PATH, WEBAPP_PORT, WEBAPP_HOST
+from dispatcher import dp, bot
 
 
 @dp.message_handler(filters.RegexpCommandsFilter(regexp_commands=['exchange ([0-9]*) ([\w]*) to ([\w]*)']))
