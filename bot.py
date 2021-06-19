@@ -32,7 +32,7 @@ async def stats(message: types.Message, regexp_command):
     await bot.send_photo(message.from_user.id, open(response, 'rb'), f'График за последние {regexp_command.group(3)} дней')
 
 
-@dp.message_handler(commands='start', command_prefix='/')
+@dp.message_handler(commands='start', commands_prefix='/')
 async def welcome(message: types.Message):
     await message.answer('Im working')
 
